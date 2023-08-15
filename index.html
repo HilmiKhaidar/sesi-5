@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cuy University</title>
+  </head>
+
+  <style>
+    #root {
+      background-color: tomato;
+      color: white;
+      font-size: 2em;
+      text-align: center;
+      height: 100vh;
+    }
+  </style>
+
+  <body>
+    <div id="root">
+      <input type="text" placeholder="username" id="usernameInput" />
+      <input type="password" placeholder="password" id="passwordInput" />
+      <button onclick="onLogin()">Login</button>
+      <br />
+      <h1 id="admin">login sebagai admin</h1>
+      <h1 id="standar">Login sebagai anggota</h1>
+    </div>
+
+    <script type="application/javascript">
+      let usernameInput = document.getElementById("usernameInput");
+      let passwordInput = document.getElementById("passwordInput");
+      let admin = document.getElementById("admin");
+      let standar = document.getElementById("standar");
+
+      admin.style.display = "none";
+      standar.style.display = "none";
+
+      console.log(usernameInput.value);
+      function onLogin() {
+        console.log("tombol login di klick");
+        console.log(passwordInput.value);
+        localStorage.setItem = ("username ", usernameInput.value);
+
+        if (usernameInput.value == "admin" && passwordInput.value == "admin123") {
+          alert("Login sebagai admin");
+          localStorage.setItem = ("role", "admin");
+          standar.style.display = "none";
+          admin.style.display = "block";
+        } else {
+          alert("User login biasa");
+          localStorage.setItem = ("role", "standar");
+          admin.style.display = "none";
+          standar.style.display = "block";
+        }
+      }
+
+      if (localStorage.getItem("username")) {
+      }
+    </script>
+  </body>
+</html>
